@@ -1,0 +1,2 @@
+class MeshiterrosController < ApplicationController
+end
