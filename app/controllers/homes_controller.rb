@@ -3,4 +3,7 @@ class HomesController < ApplicationController
    top
 
   end
+  
+  def about
+  end
 end
