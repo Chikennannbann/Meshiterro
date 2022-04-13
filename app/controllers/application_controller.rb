@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
    def after_sign_in_path_for(resource)
-     about_path
+     post_images_path
    end
   # Deviseの初期設定がroot_pathのため変更
 
