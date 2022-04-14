@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
  resources :post_images, only: [:new, :create, :index, :show, :destroy] do
 # コントローラ名がpost_imagesと一致しているか？
+  resource :favorites, only: [:create, :destroy]
+  # 単数形にすると、/:idがURLに含まれなくなる
+  # それ自身のidが分からなくても、関連する他のモデルのidから特定できる」といった場合に用いる
   resources :post_comments, only: [:create, :destroy]
  end
 
