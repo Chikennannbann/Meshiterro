@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @post_images = @user.post_images
+    @post_images = @user.post_images.page(params[:page])
+    # users_controller.rbのshowアクションでもユーザーに関連付いたPostImageを取得しているので、post_imagesコントローラ同様に追記
   end
 
   def edit

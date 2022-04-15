@@ -8,12 +8,16 @@ def new
     @post_image.user_id = current_user.id
     # current_userはログイン中のユーザー情報を取得することができる
     # deviceのヘルパーメソッド:deviceをインストールすることで使用可能
-    @post_image.save
-    redirect_to post_images_path
+    if @post_image.save
+      redirect_to post_images_path
+    else
+      render :new
+    end
   end
 
   def index
-    @post_images = PostImage.all
+    @post_images = PostImage.page(params[:page])
+    # pageメソッドはkaminariをインストールしたことで使用可能
   end
 
   def show
